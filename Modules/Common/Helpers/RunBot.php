@@ -419,7 +419,7 @@ function updateTimestamp()
 
                 //update timestamp
                 $update = BotActivation::find($act->id);
-                $update->start_time = time();
+                $update->start_time = now()->addMinutes(-1)->timestamp;
                 $update->daily_timestamp = time();
                 if ($act->daily_profit > 0) {
                     $update->daily_profit = 0; //reset the daily profit to zero
