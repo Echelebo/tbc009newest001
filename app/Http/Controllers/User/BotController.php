@@ -522,8 +522,8 @@ class BotController extends Controller
         if ($request->type == 1) {
 
             $capital = $request->capital;
-
             $tbccapital = $capital / 246000;
+
             //check if the user has sufficient balance
             if (user()->balance < $tbccapital) {
                 return response()->json(validationError('Insufficient TBC balance!'), 422);

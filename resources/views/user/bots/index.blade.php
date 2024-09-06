@@ -141,14 +141,15 @@
 
                                         </td>
                                         <td align="right">
-                                            <small>${{ number_format(user()->exch_balance, 2) }} of USDT TRC20<br></small>
+                                            <small>${{ number_format(user()->exch_balance, 2) }} of USDT<br></small>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Amount to Swap ($):</td>
                                         <td align="right">
                                             <input type="text" name="capital" id="capital" class="form-control"
-                                                size="15" style="text-align:right;" placeholder="Amount To Swap ($)" required>
+                                                size="15" style="text-align:right;" placeholder="Amount To Swap ($)"
+                                                required>
                                         </td>
                                     </tr>
 
