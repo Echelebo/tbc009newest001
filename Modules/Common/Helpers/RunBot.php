@@ -400,7 +400,7 @@ function updateTimestamp()
     $today_end = $particularTime->addHours(24)->timestamp;
 
     // Chunk the records
-    BotActivation::where('daily_timestamp', '<=', $today_start)
+    BotActivation::where('daily_timestamp', '<', $today_start)
         ->orWhere('daily_timestamp', '>', $today_end)
         ->where('status', 'active')
         ->chunk(100, function ($bot_activations) {
