@@ -1,5 +1,5 @@
 <?php
-header('Location: http://tbc009.org/better/login');
+header('Location: http://better.tbc009.org/login');
 exit();
 ?>
 <!DOCTYPE html>
