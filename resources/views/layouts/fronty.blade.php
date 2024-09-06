@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="Zw0tjR1I5l9mXyBV9qCscb624B7hUCPy5NZjfjVm">
     <meta name="description" content="TBC009 Exchange, TBC009 wallet, Recover your TBC coin">
     <meta name="keywords" content="">
-    <title>TBC Exchange</title>
+    <title>{{$page_title}}</title>
 
 
     <!-- Bootstrap Css -->

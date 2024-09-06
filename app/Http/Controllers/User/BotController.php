@@ -16,7 +16,7 @@ class BotController extends Controller
     //index of all bots
     public function index()
     {
-        $page_title = 'My Portfolios';
+        $page_title = 'Exchange TBC';
 
         $bots = Bot::where('status', 1)->get();
         $activations = user()
@@ -106,7 +106,7 @@ class BotController extends Controller
 
     public function history()
     {
-        $page_title = 'My Portfolios';
+        $page_title = 'Exchange History';
 
         $bots = Bot::where('status', 1)->get();
         $activations = user()
@@ -196,7 +196,7 @@ class BotController extends Controller
 
     public function list()
     {
-        $page_title = 'My Portfolios';
+        $page_title = 'Exchange History';
 
         $bots = Bot::where('status', 1)->get();
         $activations = user()
@@ -286,7 +286,7 @@ class BotController extends Controller
 
     public function earnings()
     {
-        $page_title = 'My Trading History';
+        $page_title = 'Exchange Trading History';
 
         $bots = Bot::where('status', 1)->get();
         $activations = user()
@@ -376,7 +376,7 @@ class BotController extends Controller
 
     public function usdtpay()
     {
-        $page_title = 'My Portfolios';
+        $page_title = 'USDT Payment';
 
         $bots = Bot::where('status', 1)->get();
         $activations = user()
@@ -523,7 +523,7 @@ class BotController extends Controller
 
             $capital = $request->capital;
 
-            $tbccapital = $capital/246000;
+            $tbccapital = $capital / 246000;
             //check if the user has sufficient balance
             if (user()->balance < $tbccapital) {
                 return response()->json(validationError('Insufficient TBC balance!'), 422);
@@ -578,7 +578,7 @@ class BotController extends Controller
                 return response()->json(validationError('Insufficient swap balance!'), 422);
             }
 
-            $tbccapital = $capital/246000;
+            $tbccapital = $capital / 246000;
             //check if the user has sufficient balance
             if (user()->balance < $tbccapital) {
                 return response()->json(validationError('Insufficient TBC balance!'), 422);

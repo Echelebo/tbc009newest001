@@ -12,7 +12,6 @@ class TransactionController extends Controller
     {
         $page_title = 'My Transactions';
 
-
         if ($request->s) {
             $transactions = user()
                 ->transactions()
@@ -21,25 +20,21 @@ class TransactionController extends Controller
                 ->paginate(site('pagination'));
         } else {
             $transactions = user()
-                ->transactions() 
+                ->transactions()
                 ->orderBy('id', 'DESC')
                 ->paginate(site('pagination'));
         }
 
-        
-
-        
         return view('user.transactions.index', compact(
             'page_title',
             'transactions',
         ));
     }
-    
+
     //index of all withdrawals
     public function history(Request $request)
     {
         $page_title = 'Earning History';
-
 
         if ($request->s) {
             $transactions = user()
@@ -49,21 +44,15 @@ class TransactionController extends Controller
                 ->paginate(site('pagination'));
         } else {
             $transactions = user()
-                ->transactions() 
+                ->transactions()
                 ->orderBy('id', 'DESC')
                 ->paginate(site('pagination'));
         }
 
-        
-
-        
         return view('user.earnings.history', compact(
             'page_title',
             'transactions',
         ));
     }
-
-
-
 
 }
