@@ -1,0 +1,482 @@
+/*
+* 
+* ==========================================================
+* EXCHANGE.SCSS
+* ==========================================================
+*
+* Crypto Exchange CSS file
+*
+*/
+#boxcoin-exchange {
+  padding: 35px;
+  border-radius: 6px; }
+  #boxcoin-exchange input, #boxcoin-exchange select, #boxcoin-exchange textarea {
+    font-family: "Boxcoin", "Helvetica Neue", "Apple Color Emoji", Helvetica, Arial, sans-serif;
+    font-size: 14px; }
+  #boxcoin-exchange input::-webkit-outer-spin-button,
+  #boxcoin-exchange input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
+  #boxcoin-exchange > .bxc-panel .bxc-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 15px 0;
+    letter-spacing: .3px;
+    position: relative; }
+  #boxcoin-exchange > .bxc-panel .bxc-text {
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: .3px;
+    opacity: .8;
+    margin: 0; }
+  #boxcoin-exchange > .bxc-panel .bxc-error {
+    margin: 10px 0 0 0;
+    font-size: 13px;
+    letter-spacing: .3px;
+    font-weight: 400; }
+    #boxcoin-exchange > .bxc-panel .bxc-error + .bxc-title {
+      margin-top: 30px; }
+    #boxcoin-exchange > .bxc-panel .bxc-error + .bxc-text {
+      margin-top: 15px; }
+  #boxcoin-exchange > .bxc-panel:not(.bxc-active) {
+    display: none; }
+
+.bxc-input-select {
+  position: relative;
+  display: block !important; }
+  .bxc-input-select .bxc-1 {
+    display: flex;
+    position: relative;
+    max-width: 100%;
+    align-items: center;
+    padding: 0;
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+    overflow: hidden; }
+    .bxc-input-select .bxc-1 > input {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 0 !important;
+      border-right: none;
+      border: none !important;
+      height: 40px;
+      min-height: 40px; }
+    .bxc-input-select .bxc-1 > div {
+      display: flex;
+      position: relative;
+      padding: 0 15px;
+      height: 40px;
+      min-width: 150px;
+      background-color: #f5fafa;
+      border-left: 1px solid #d4d4d4;
+      align-items: center;
+      transition: all 0.4s;
+      cursor: pointer; }
+      .bxc-input-select .bxc-1 > div img {
+        width: 25px;
+        margin-right: 15px;
+        display: block; }
+      .bxc-input-select .bxc-1 > div span {
+        width: auto;
+        min-width: auto;
+        user-select: none;
+        display: block; }
+      .bxc-input-select .bxc-1 > div:hover {
+        background-color: #fcfdfd; }
+    .bxc-input-select .bxc-1.bxc-error {
+      border-color: #ca3434;
+      margin: 0; }
+  .bxc-input-select .bxc-2 {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0;
+    background: #fff;
+    border: 1px solid #d4d4d4;
+    z-index: 2;
+    border-radius: 4px; }
+    .bxc-input-select .bxc-2.bxc-active {
+      display: block; }
+  .bxc-input-select .bxc-2-1 {
+    position: relative;
+    padding: 15px; }
+    .bxc-input-select .bxc-2-1 i {
+      position: absolute; }
+      .bxc-input-select .bxc-2-1 i:first-child {
+        left: 25px;
+        top: 28px;
+        color: #c3c3c3; }
+      .bxc-input-select .bxc-2-1 i:last-child {
+        right: 25px;
+        top: 29px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.4s;
+        color: #707070; }
+        .bxc-input-select .bxc-2-1 i:last-child:hover {
+          color: #ca3434; }
+    .bxc-input-select .bxc-2-1 input {
+      padding-left: 35px;
+      padding-right: 35px; }
+  .bxc-input-select .bxc-2-2 {
+    max-height: 315px; }
+    .bxc-input-select .bxc-2-2 > span {
+      font-weight: 500;
+      padding: 15px;
+      opacity: .8; }
+
+.bxc-hidden-select, .bxc-hidden-fiat, .bxc-hidden-fiat + .bxc-select-ul {
+  display: none !important; }
+
+.bxc-select-ul > div {
+  justify-content: flex-start;
+  cursor: pointer;
+  text-align: left;
+  padding: 10px 15px;
+  transition: all 0.4s; }
+  .bxc-select-ul > div img {
+    display: block;
+    max-width: 30px;
+    margin: 0 15px 0 0; }
+  .bxc-select-ul > div > div {
+    transform: translateY(2px); }
+  .bxc-select-ul > div span {
+    display: block;
+    line-height: 22px;
+    font-size: 16px;
+    width: auto; }
+    .bxc-select-ul > div span + span {
+      display: block;
+      font-weight: 400;
+      opacity: .8;
+      font-size: 13px; }
+    .bxc-select-ul > div span:first-child {
+      white-space: nowrap; }
+  .bxc-select-ul > div.bxc-hidden {
+    display: none; }
+  .bxc-select-ul > div:hover {
+    background-color: #f5fafa; }
+
+.bxc-input-select .bxc-1 > div:after, .bxc-summary:after {
+  content: "\61";
+  font-family: "Boxcoin Icons";
+  font-style: normal;
+  font-weight: normal;
+  text-transform: none;
+  text-indent: 0;
+  display: block;
+  font-size: 11px;
+  line-height: 11px;
+  text-align: center;
+  position: absolute;
+  right: 15px;
+  top: calc(50% - 5px);
+  z-index: 1;
+  color: #464646; }
+
+.bxc-input input[disabled] {
+  background-color: #fff;
+  cursor: not-allowed; }
+
+#bxc-send .bxc-1 > div span, #bxc-get .bxc-1 > div span {
+  text-transform: uppercase; }
+
+.bxc-hide-crypto .bxc-title-ul, .bxc-hide-currencies .bxc-title-ul, .bxc-hide-crypto .bxc-title-cryptocurrencies + div, .bxc-hide-currencies .bxc-title-currencies + div {
+  display: none !important; }
+
+.bxc-title-summary {
+  margin-top: 30px !important; }
+  .bxc-title-summary span {
+    float: right;
+    font-weight: 400;
+    font-size: 13px; }
+    .bxc-title-summary span i {
+      height: 12px;
+      margin-right: 7px;
+      font-size: 11px; }
+
+.bxc-title-summary:not(.bxc-active), .bxc-summary:not(.bxc-active) {
+  display: none; }
+
+.bxc-title > i {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  font-size: 14px;
+  width: 30px;
+  height: 30px;
+  text-align: right;
+  cursor: pointer;
+  transition: all 0.4s; }
+  .bxc-title > i:hover {
+    color: #2bb0ba; }
+
+.bxc-summary {
+  font-size: 14px;
+  line-height: 17px;
+  padding: 11.5px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer; }
+  .bxc-summary b {
+    font-weight: 500; }
+  .bxc-summary .bxc-2 {
+    padding: 15px 0 0 0;
+    transition: all 0.4s; }
+    .bxc-summary .bxc-2 > span + span {
+      margin-top: 10px; }
+    .bxc-summary .bxc-2 .bxc-icon-help {
+      font-size: 12px;
+      margin: 0 0 0 5px;
+      cursor: pointer; }
+      .bxc-summary .bxc-2 .bxc-icon-help:before {
+        opacity: 0.6; }
+    .bxc-summary .bxc-2 i:not(.bxc-icon-help) {
+      font-style: normal;
+      opacity: 0.6; }
+  .bxc-summary:not(.bxc-open) .bxc-2 {
+    height: 0;
+    overflow: hidden;
+    padding: 0; }
+  .bxc-summary.bxc-open:after {
+    transform: rotate(180deg); }
+  .bxc-summary:after {
+    top: 15px;
+    transition: all 0.4s; }
+
+.bxc-btn-main {
+  display: block;
+  margin-top: 30px; }
+  .bxc-btn-main:not(.bxc-loading):before {
+    content: "\ea3c";
+    display: block;
+    font-size: 15px;
+    right: 15px;
+    top: calc(50% - 8px); }
+
+.bxc-footer {
+  text-align: center;
+  font-size: 13px;
+  line-height: 22px;
+  margin-top: 30px;
+  color: #5c7171; }
+  .bxc-footer a {
+    color: #5c7171; }
+  .bxc-footer:empty {
+    display: none; }
+
+#bxc-get-address, #bxc-payment-address {
+  position: relative;
+  margin: 0 0 15px 0; }
+  #bxc-get-address input, #bxc-payment-address input {
+    padding-right: 42px; }
+  #bxc-get-address img, #bxc-payment-address img {
+    position: absolute;
+    right: 11px;
+    top: 11px;
+    width: 20px;
+    height: 20px; }
+
+#bxc-payment-address:not(.bxc-active), bxc-payment-address-fiat:not(.bxc-active) {
+  display: none !important; }
+
+#bxc-payment-method-send {
+  margin-bottom: 15px !important; }
+
+#bxc-panel-address-fiat .bxc-input + .bxc-text {
+  margin-top: 15px; }
+
+#bxc-payment-details-send {
+  min-height: 200px; }
+
+.bxc-paymet-method {
+  margin-bottom: 30px; }
+  .bxc-paymet-method > div {
+    transition: all 0.4s;
+    cursor: default; }
+    .bxc-paymet-method > div:not(.bxc-active) {
+      opacity: .3;
+      cursor: pointer; }
+      .bxc-paymet-method > div:not(.bxc-active):hover {
+        opacity: 1; }
+    .bxc-paymet-method > div + div {
+      margin-top: 5px; }
+  .bxc-paymet-method img {
+    max-width: 74px; }
+  .bxc-paymet-method [data-payment-method="crypto"] {
+    opacity: 1 !important;
+    cursor: default !important;
+    justify-content: flex-start; }
+    .bxc-paymet-method [data-payment-method="crypto"] img {
+      max-width: 30px;
+      margin-right: 10px; }
+  .bxc-paymet-method[data-crypto="true"] [data-payment-method="stripe"], .bxc-paymet-method[data-crypto="true"] [data-payment-method="paypal"], .bxc-paymet-method[data-crypto="false"] [data-payment-method="crypto"], .bxc-paymet-method[data-crypto="true"] [data-payment-method="manual"] {
+    display: none !important; }
+
+#bxc-payment-address-fiat, .bxc-paymet-method [data-payment-method="crypto"] div {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: .3px; }
+
+#bxc-panel-processing, #bxc-panel-finish, #bxc-panel-finish-manual {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  #bxc-panel-processing > .bxc-loading, #bxc-panel-processing > .bxc-icon-check, #bxc-panel-processing .bxc-icon-close, #bxc-panel-finish > .bxc-loading, #bxc-panel-finish > .bxc-icon-check, #bxc-panel-finish .bxc-icon-close, #bxc-panel-finish-manual > .bxc-loading, #bxc-panel-finish-manual > .bxc-icon-check, #bxc-panel-finish-manual .bxc-icon-close {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 15px auto; }
+    #bxc-panel-processing > .bxc-loading:before, #bxc-panel-processing > .bxc-icon-check:before, #bxc-panel-processing .bxc-icon-close:before, #bxc-panel-finish > .bxc-loading:before, #bxc-panel-finish > .bxc-icon-check:before, #bxc-panel-finish .bxc-icon-close:before, #bxc-panel-finish-manual > .bxc-loading:before, #bxc-panel-finish-manual > .bxc-icon-check:before, #bxc-panel-finish-manual .bxc-icon-close:before {
+      line-height: 30px;
+      font-size: 30px;
+      color: #2bb0ba; }
+  #bxc-panel-processing > .bxc-icon-close:before, #bxc-panel-finish > .bxc-icon-close:before, #bxc-panel-finish-manual > .bxc-icon-close:before {
+    color: #ca3434; }
+  #bxc-panel-processing .bxc-title, #bxc-panel-finish .bxc-title, #bxc-panel-finish-manual .bxc-title {
+    text-align: center; }
+
+#bxc-panel-finish > .bxc-title {
+  font-weight: 400 !important;
+  line-height: 30px; }
+  #bxc-panel-finish > .bxc-title b {
+    font-weight: 500; }
+#bxc-panel-finish > a {
+  color: #2bb0ba; }
+  #bxc-panel-finish > a:after {
+    background-color: #2bb0ba; }
+
+#bxc-panel-finish-manual {
+  text-align: center; }
+  #bxc-panel-finish-manual .bxc-title {
+    margin-top: 15px !important; }
+  #bxc-panel-finish-manual .bxc-text {
+    opacity: 1 !important; }
+    #bxc-panel-finish-manual .bxc-text b {
+      font-weight: 500; }
+
+.bxc-text-manual {
+  text-align: center;
+  opacity: 1 !important; }
+
+#bxc-invert:not(.bxc-active) {
+  display: none; }
+
+#bxc-error-identity {
+  margin-top: 30px !important; }
+
+#bxc-panel-identity .bxc-input + .bxc-title {
+  margin-top: 30px; }
+
+#bxc-btn-exchange-identity + .bxc-text {
+  text-align: center;
+  display: none; }
+#bxc-btn-exchange-identity.bxc-loading + .bxc-text {
+  display: block;
+  margin-top: 15px; }
+
+#bxc-email-verification {
+  margin-top: 30px; }
+  #bxc-email-verification .bxc-text {
+    margin: -5px 0 15px 0 !important; }
+
+.complycube-sdk-ui-Theme-modalOverlay {
+  z-index: 9; }
+
+#bxc-cancel-verify-payment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #5c7171;
+  margin-top: 10px; }
+  #bxc-cancel-verify-payment .bxc-icon-close {
+    margin: 0 5px 0 0;
+    width: auto;
+    height: auto; }
+    #bxc-cancel-verify-payment .bxc-icon-close:before {
+      line-height: 20px;
+      font-size: 8px;
+      color: #5c7171;
+      transition: all 0.4s; }
+  #bxc-cancel-verify-payment:hover, #bxc-cancel-verify-payment:hover .bxc-icon-close:before {
+    color: #ca3434; }
+
+#bxc-transaction-link {
+  transition: opacity .5s !important; }
+  #bxc-transaction-link.bxc-loading {
+    text-indent: initial;
+    width: auto;
+    padding-left: 30px;
+    color: #5c7171;
+    opacity: .7;
+    cursor: default;
+    height: 19px;
+    line-height: 19px;
+    margin: 0; }
+    #bxc-transaction-link.bxc-loading:before {
+      left: 12px;
+      top: 14px;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 17px;
+      color: #5c7171; }
+    #bxc-transaction-link.bxc-loading:hover {
+      opacity: .5; }
+
+.bxc-two-buttons {
+  margin-top: 10px; }
+  .bxc-two-buttons > div {
+    margin: 0 5px; }
+
+/* 
+
+# RTL
+==========================================================
+
+*/
+.bxc-rtl .bxc-input-select .bxc-1 > div {
+  flex-direction: row-reverse;
+  border-right: 1px solid #d4d4d4;
+  border-left: none; }
+  .bxc-rtl .bxc-input-select .bxc-1 > div span {
+    text-align: left; }
+.bxc-rtl .bxc-select-ul > div img {
+  margin: 0 0 0 15px; }
+.bxc-rtl .bxc-select-ul > div > div {
+  text-align: right; }
+.bxc-rtl .bxc-title-summary span i {
+  margin-right: 0;
+  margin-left: 7px; }
+.bxc-rtl .bxc-summary .bxc-2 .bxc-icon-help {
+  margin: 0 5px 0 0; }
+.bxc-rtl .bxc-title > i {
+  left: 0;
+  right: auto;
+  text-align: left; }
+.bxc-rtl #bxc-cancel-verify-payment .bxc-icon-close {
+  margin: 0 0 0 5px; }
+
+/* 
+
+# RESPONSIVE
+==========================================================
+
+*/
+@media (max-width: 486px) {
+  #boxcoin-exchange {
+    padding: 15px; }
+
+  .bxc-input-select .bxc-1 {
+    display: block; }
+    .bxc-input-select .bxc-1 > div {
+      border-left: none;
+      border-top: 1px solid #d4d4d4;
+      padding: 0 10px; } }
+
+/*# sourceMappingURL=exchange.css.map */
