@@ -38,7 +38,7 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                               
+
                                 <table class="table">
                                     <tbody>
                                         <tr>
@@ -46,40 +46,43 @@
                                             <th scope="col">Wallet</th>
                                             <th scope="col">Address</th>
                                         </tr>
-                                         @foreach ($coins as $coin)
-                                        <tr>
-                                            
-                                            <td><input type="radio" name="currency_code" id="currency_code"
-                                                    value="{{ $coin->code }}" required></td>
-                                            <td>{{ $coin->code }}</td>
-                                            @if ($coin->id == 219)
-                                            @if (is_null(user()->usdtbsc_wallet))
-                                                <td><a class="badge badge-danger"
-                                                        href="{{ route('user.profile.edit') }}"><i>set wallet</i></a></td>
-                                            @else
-                                                <td>{{ user()->usdtbsc_wallet }}</td>
-                                            @endif
-                                            @elseif ($coin->id == 221)
-                                            @if (is_null(user()->usdterc_wallet))
-                                                <td><a class="badge badge-danger"
-                                                        href="{{ route('user.profile.edit') }}"><i>set wallet</i></a></td>
-                                            @else
-                                                <td>{{ user()->usdterc_wallet }}</td>
-                                            @endif
-                                            @elseif ($coin->id == 224)
-                                            @if (is_null(user()->usdt_wallet))
-                                                <td><a class="badge badge-danger"
-                                                        href="{{ route('user.profile.edit') }}"><i>set wallet</i></a></td>
-                                            @else
-                                                <td>{{ user()->usdt_wallet }}</td>
-                                            @endif
-                                            @endif
-                                            
-                                        </tr>
+                                        @foreach ($coins as $coin)
+                                            <tr>
+
+                                                <td><input type="radio" name="currency_code" id="currency_code"
+                                                        value="{{ $coin->code }}" required></td>
+                                                <td>{{ $coin->code }}</td>
+                                                @if ($coin->id == 219)
+                                                    @if (is_null(user()->usdtbsc_wallet))
+                                                        <td><a class="badge badge-danger"
+                                                                href="{{ route('user.profile.edit') }}"><i>set
+                                                                    wallet</i></a></td>
+                                                    @else
+                                                        <td>{{ user()->usdtbsc_wallet }}</td>
+                                                    @endif
+                                                @elseif ($coin->id == 221)
+                                                    @if (is_null(user()->usdterc_wallet))
+                                                        <td><a class="badge badge-danger"
+                                                                href="{{ route('user.profile.edit') }}"><i>set
+                                                                    wallet</i></a></td>
+                                                    @else
+                                                        <td>{{ user()->usdterc_wallet }}</td>
+                                                    @endif
+                                                @elseif ($coin->id == 224)
+                                                    @if (is_null(user()->usdt_wallet))
+                                                        <td><a class="badge badge-danger"
+                                                                href="{{ route('user.profile.edit') }}"><i>set
+                                                                    wallet</i></a></td>
+                                                    @else
+                                                        <td>{{ user()->usdt_wallet }}</td>
+                                                    @endif
+                                                @endif
+
+                                            </tr>
                                         @endforeach
                                     </tbody>
-                                    </table>
-                                    
+                                </table>
+
                             </div>
                         </div>
                     </div>
@@ -95,9 +98,9 @@
                                             <td colspan="2">&nbsp;</td>
                                         </tr>
                                         <tr>
-                                            <td>Withdrawal ($):</td>
-                                            <td><input type="text" name="amount" id="amount" value="0.00"
-                                                    class="form-control" size="15" required></td>
+                                            <td>Withdrawal amount($):</td>
+                                            <td><input type="text" name="amount" id="amount" value=""
+                                                    class="form-control" size="15" placeholder="Amount" required></td>
                                         </tr>
                                         <tr>
                                             <td colspan="2">
@@ -350,7 +353,7 @@
                     var form = $(this);
                     var formData = new FormData(this);
 
-                    var submitButton = $(this).find('button[type="submit"]');
+                    var submitButton = $(this).find('input[type="submit"]');
                     submitButton.addClass('relative disabled');
                     submitButton.append('<span class="button-spinner"></span>');
                     submitButton.prop('disabled', true);

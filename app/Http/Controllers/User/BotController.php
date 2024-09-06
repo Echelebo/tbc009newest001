@@ -628,6 +628,7 @@ class BotController extends Controller
             $activation->capital = $capital;
             $activation->profit = 0;
             $activation->expires_in = $duration;
+            $activation->start_time = time();
             $activation->daily_timestamp = now()->addDays(-1)->timestamp;
             $activation->daily_sequence = json_encode([]);
             $activation->gen_timestamps = json_encode([]);

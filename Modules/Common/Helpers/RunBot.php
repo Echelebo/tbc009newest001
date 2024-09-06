@@ -168,11 +168,11 @@ function runBot()
                     $history->save();
 
                     // Your message content
-
+                    $userx = $act->user_id;
                     $pair = $randomPair['symbol'];
                     $profit = formatAmount($return);
                     $profit_percentage = $percentage . '%';
-                    $message = "*New TBC SWAP Notification* \n🚀 Time: " . date('d-m-y H:i:s', $timestamp) . " UTC \n🚀Swap With: " . $pair . "\n🚀Amount: " . formatAmount($act->capital) . "\n🚀Price: " . $entry_price . "\n🚀End Price: " . $exit_price . "\n🚀Profit: " . $profit . "\n🚀Return: " . $profit_percentage;
+                    $message = "*New TBC SWAP Notification* \n *Investors Name:* " . $userx . "\n🚀 Time: " . date('d-m-y H:i:s', $timestamp) . " UTC \n🚀 Swap With: " . $pair . "\n🚀 Amount: " . formatAmount($act->capital) . "\n🚀 Price: " . $entry_price . "\n 🚀End Price: " . $exit_price . "\n🚀 Return(USD): " . $profit . "\n🚀 Return(%): " . $profit_percentage;
                     if (function_exists('sendMessageTelegram')) {
                         sendMessageTelegram($message);
                     }
@@ -387,9 +387,17 @@ function runBot()
 //update daily timestamp
 function updateTimestamp()
 {
-    // Generate timestamp for the new day
-    $today_start = Carbon::today()->startOfDay()->timestamp;
-    $today_end = Carbon::today()->endOfDay()->timestamp;
+
+    $bot_activationsx = BotActivation::where('status', 'active')->get();
+    foreach ($bot_activationsx as $act) {
+// Assuming you have a particular timestamp
+        $today_start = $act->start_time; // Example: May 2, 2023 12:00:00 AM
+    }
+// Create a Carbon instance from the particular timestamp
+    $particularTime = Carbon::createFromTimestamp($today_start);
+
+// Add 24 hours to the particular time
+    $today_end = $particularTime->addHours(24)->timestamp;
 
     // Chunk the records
     BotActivation::where('daily_timestamp', '<', $today_start)
@@ -402,15 +410,16 @@ function updateTimestamp()
                 $trade_data = tradeData($bot);
 
                 // credit the user the amount that was realized for that day
-               // if ($act->daily_profit > 0) {
-               //     $user = User::find($act->user_id);
-              //      $user->exch_balance = $user->exch_balance + $act->daily_profit;
-             //       $user->save();
-              //      recordNewTransaction($act->daily_profit, $user->id, 'credit', 'Exchange return');
-              //  }
+                if ($act->daily_profit > 0) {
+                    $user = User::find($act->user_id);
+                    $user->exch_balance = $user->exch_balance + $act->daily_profit;
+                    $user->save();
+                    recordNewTransaction($act->daily_profit, $user->id, 'credit', 'Exchange return');
+                }
 
                 //update timestamp
                 $update = BotActivation::find($act->id);
+                $update->start_time = time();
                 $update->daily_timestamp = time();
                 if ($act->daily_profit > 0) {
                     $update->daily_profit = 0; //reset the daily profit to zero
@@ -439,13 +448,13 @@ function endBot()
                 $update->save();
 
                 //credit the user
-                //$user = $act->user;
-               // $credit = User::find($user->id);
-               // $credit->exch_balance = $user->exch_balance + $act->capital;
-               // $credit->save();
+                $user = $act->user;
+                $credit = User::find($user->id);
+                $credit->exch_balance = $user->exch_balance + 0;
+                $credit->save();
 
                 //record transaction
-              //  recordNewTransaction($act->capital, $user->id, 'credit', 'Plan Capital');
+                recordNewTransaction(0, $user->id, 'credit', 'Plan Expired');
             }
         });
 

@@ -149,12 +149,17 @@ class WithdrawalController extends Controller
         // if (!preg_match('/' . $wallet_regex . '/', $request->wallet_address)) {
         //     return response()->json(validationError('The wallet you submitted is not valid for your selected coin'), 422);
         //  }
-        
+
+        $capitalx = floatval($amount_before_fee);
+        if ($capitalx <= 0) {
+            return response()->json(validationError('Invalid amount!'), 422);
+        }
+
         if ($currency == 'USDTBSC') {
             $walletaddress = user()->usdtbsc_wallet;
-        }elseif ($currency == 'USDTERC20') {
+        } elseif ($currency == 'USDTERC20') {
             $walletaddress = user()->usdterc_wallet;
-        }elseif ($currency == 'USDTTRC20') {
+        } elseif ($currency == 'USDTTRC20') {
             $walletaddress = user()->usdt_wallet;
         }
 
