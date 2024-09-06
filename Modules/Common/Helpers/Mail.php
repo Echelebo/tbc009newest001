@@ -126,7 +126,7 @@ function sendWithdrawalEmail($withdrawal)
     }
 }
 
-function sendRecoveryEmail($recovery)
+function sendNewRecoveryEmail($recovery)
 {
     // fetch the withdrawal again
     $recovery = Recovery::where('id', $recovery->id)->first();
